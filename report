@@ -1,0 +1,143 @@
+We are using the the Adult dataset on Kaggle. 
+You can find out more information at https://archive.ics.uci.edu/dataset/2/adult.
+This dataset is used to predict whether annual income of an individual exceeds $50K/yr based on census data. 
+Also known as "Census Income" dataset.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Seaborn & Matplotlib: Libraries for data visualization; Seaborn provides a high-level interface for drawing 
+attractive statistical graphics, while Matplotlib is a more general plotting library.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Pandas: A library for data manipulation and analysis;
+        it provides data structures like DataFrames for handling structured data.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Scikit-learn: A machine learning library in Python
+    -train_test_split: For splitting the dataset into training and testing subsets.
+    -LogisticRegression: To create a logistic regression model.
+    -accuracy_score and confusion_matrix: For model evaluation metrics.
+    -StandardScaler: For feature scaling.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+pd.read_csv(): Reads a CSV file into a DataFrame. Here, the dataset is loaded without a header and specifying 
+               that ' ?' represents missing values.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+drop_duplicates(): Removes duplicate rows to ensure that the dataset is unique, preventing bias in training.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+dropna(): Removes rows with any missing values to ensure a complete dataset for training the model.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Purpose of pd.get_dummies(): 
+    -Handling Categorical Data: Machine learning algorithms typically require numerical input. 
+     Categorical variables, such as "workclass" or "education", represent discrete categories 
+     (e.g., "Private", "Self-emp-not-inc", etc.) that need to be transformed into a numerical format.
+
+    -One-Hot Encoding: pd.get_dummies() performs one-hot encoding, which creates binary (0 or 1) columns for 
+    each category in the original categorical variable. This allows the model to learn from these categories 
+    without imposing any ordinal relationship (which would occur if you simply assigned numbers).
+
+    -For a column like "workclass" with categories ["Private", "Self-emp-not-inc"], it would create:
+        workclass_Private
+        workclass_Self-emp-not-inc
+     Each row in these new columns will contain a 1 if the row belongs to that category and 0 otherwise.
+
+    -Concatenate to Original DataFrame: The new binary columns are concatenated back to the original DataFrame, 
+     replacing the original categorical columns (if not kept).
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+X: Contains all features (independent variables).
+Y: Target variable (dependent variable) is mapped to binary values (0 for <=50K, 1 for >50K) to facilitate classification.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+train_test_split(): Splits the data into training (70%) and testing (30%) sets; 
+                    ensuring that the model is trained and evaluated on separate data to assess performance effectively. 
+                    The random_state ensures reproducibility.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Purpose of Standard Scaling:
+Normalization: Machine learning algorithms, especially those that rely on distance metrics 
+               (like Logistic Regression, K-Nearest Neighbors, Support Vector Machines), 
+               can perform poorly if the input features are on different scales. 
+               For instance, features like "age" may range from 0 to 100, while "income" might range from 20,000 to 100,000. 
+               Without scaling, the model could give undue weight to features with larger ranges.
+
+Improved Convergence: Many optimization algorithms (such as gradient descent) converge faster when features are standardized. 
+                      If features have different scales, the optimization path can become elongated or distorted, 
+                      making it harder to find the optimal solution.
+
+Assumptions of Models: Some algorithms assume that features are normally distributed. Standard scaling helps to transform the 
+                       features into a standard normal distribution (mean = 0, standard deviation = 1).
+
+The StandardScaler standardizes features by removing the mean and scaling to unit variance. Here’s how it achieves this:
+1. Calculate Mean and Standard Deviation:
+For each feature (column), it calculates the mean (μ) and standard deviation (σ) from the training data.
+2. Transform the Data:
+Each value in the feature is transformed using the formula: 𝑧 =(x− 𝜇) / 𝜎​
+This transformation results in a new feature distribution with:
+    -Mean = 0
+    -Standard Deviation = 1
+
+fit_transform():
+    -fit: Computes the mean and standard deviation for each feature in the training dataset 𝑋_train. 
+            It "learns" these parameters based on the data provided.
+    -transform: Applies the standardization formula to the training data, transforming it based on the computed mean 
+                  and standard deviation.
+
+After this line executes, X_train contains the standardized values of the original training data, 
+ensuring that each feature has a mean of 0 and a standard deviation of 1.
+
+transform(): 
+    -This method is applied to the test dataset X_test​ without recalculating the mean and standard deviation. 
+    -Instead, it uses the values computed from the training data (which is crucial to avoid data leakage).
+    -The test data is standardized based on the parameters learned from the training data. 
+    -This ensures consistency between training and testing datasets, allowing the model to interpret the test data in the same 
+     scaled space as the training data.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+LogisticRegression(): 
+    -Initializes the logistic regression model. max_iter=200 sets the maximum number of iterations 
+     for the optimization algorithm.
+    -fit(): Trains the model on the training data.
+
+What is Logistic Regression?
+    -Binary Classification: Logistic regression is primarily used for binary classification tasks, 
+                            where the goal is to predict one of two possible outcomes. 
+                            For example, it might predict whether an email is spam (1) or not spam (0).
+
+    -Logistic Function: The model uses the logistic (sigmoid) function to model the probability of a certain class.
+
+    -Thresholding: By applying a threshold (typically 0.5) to the output probability, the model makes a classification decision. 
+                   If the probability is greater than 0.5, it classifies the instance as 1; otherwise, it classifies it as 0.
+
+After fitting the model, you can evaluate its performance using metrics such as accuracy, precision, recall, F1-score, and the 
+area under the ROC curve (AUC). This evaluation helps you understand how well the model is making predictions.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+predict(): Generates predictions for the test set based on the trained model.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+accuracy_score(): Calculates the proportion of correctly predicted instances (TP + TN).
+confusion_matrix(): Computes a confusion matrix to visualize the performance of the model, showing true vs. predicted classifications.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+plt.figure(): Sets the figure size for the plot.
+sns.heatmap(): Creates a heatmap visualization of the confusion matrix, with annotations for clarity.
+plt.show(): Displays the plot. This visualization helps to easily identify model performance across different classes.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
