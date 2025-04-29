@@ -1,12 +1,7 @@
-We are using the the Adult dataset on Kaggle. 
+I am using the the Adult dataset on Kaggle. 
 You can find out more information at https://archive.ics.uci.edu/dataset/2/adult.
 This dataset is used to predict whether annual income of an individual exceeds $50K/yr based on census data. 
 Also known as "Census Income" dataset.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Seaborn & Matplotlib: Libraries for data visualization; Seaborn provides a high-level interface for drawing 
-attractive statistical graphics, while Matplotlib is a more general plotting library.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
