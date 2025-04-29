@@ -14,7 +14,7 @@ Scikit-learn: A machine learning library in Python
     -train_test_split: For splitting the dataset into training and testing subsets.
     -LogisticRegression: To create a logistic regression model.
     -accuracy_score and confusion_matrix: For model evaluation metrics.
-    -StandardScaler: For feature scaling.
+    -StandardScaler: For feature scaling (optimization, normalization).
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -118,11 +118,3 @@ predict(): Generates predictions for the test set based on the trained model.
 
 accuracy_score(): Calculates the proportion of correctly predicted instances (TP + TN).
 confusion_matrix(): Computes a confusion matrix to visualize the performance of the model, showing true vs. predicted classifications.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-plt.figure(): Sets the figure size for the plot.
-sns.heatmap(): Creates a heatmap visualization of the confusion matrix, with annotations for clarity.
-plt.show(): Displays the plot. This visualization helps to easily identify model performance across different classes.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
