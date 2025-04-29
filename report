@@ -80,15 +80,6 @@ Improved Convergence: Many optimization algorithms (such as gradient descent) co
 Assumptions of Models: Some algorithms assume that features are normally distributed. Standard scaling helps to transform the 
                        features into a standard normal distribution (mean = 0, standard deviation = 1).
 
-The StandardScaler standardizes features by removing the mean and scaling to unit variance. Here’s how it achieves this:
-1. Calculate Mean and Standard Deviation:
-For each feature (column), it calculates the mean (μ) and standard deviation (σ) from the training data.
-2. Transform the Data:
-Each value in the feature is transformed using the formula: 𝑧 =(x− 𝜇) / 𝜎​
-This transformation results in a new feature distribution with:
-    -Mean = 0
-    -Standard Deviation = 1
-
 fit_transform():
     -fit: Computes the mean and standard deviation for each feature in the training dataset 𝑋_train. 
             It "learns" these parameters based on the data provided.
@@ -115,7 +106,6 @@ LogisticRegression():
 What is Logistic Regression?
     -Binary Classification: Logistic regression is primarily used for binary classification tasks, 
                             where the goal is to predict one of two possible outcomes. 
-                            For example, it might predict whether an email is spam (1) or not spam (0).
 
     -Logistic Function: The model uses the logistic (sigmoid) function to model the probability of a certain class.
 
@@ -123,7 +113,7 @@ What is Logistic Regression?
                    If the probability is greater than 0.5, it classifies the instance as 1; otherwise, it classifies it as 0.
 
 After fitting the model, you can evaluate its performance using metrics such as accuracy, precision, recall, F1-score, and the 
-area under the ROC curve (AUC). This evaluation helps you understand how well the model is making predictions.
+area under the ROC curve (AUC). This evaluation helps us understand how well the model is making predictions.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -133,11 +123,3 @@ predict(): Generates predictions for the test set based on the trained model.
 
 accuracy_score(): Calculates the proportion of correctly predicted instances (TP + TN).
 confusion_matrix(): Computes a confusion matrix to visualize the performance of the model, showing true vs. predicted classifications.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-plt.figure(): Sets the figure size for the plot.
-sns.heatmap(): Creates a heatmap visualization of the confusion matrix, with annotations for clarity.
-plt.show(): Displays the plot. This visualization helps to easily identify model performance across different classes.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
