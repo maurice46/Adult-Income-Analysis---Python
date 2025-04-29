@@ -1,12 +1,7 @@
-We are using the the Adult dataset on Kaggle. 
-You can find out more information at https://archive.ics.uci.edu/dataset/2/adult.
-This dataset is used to predict whether annual income of an individual exceeds $50K/yr based on census data. 
-Also known as "Census Income" dataset.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Seaborn & Matplotlib: Libraries for data visualization; Seaborn provides a high-level interface for drawing 
-attractive statistical graphics, while Matplotlib is a more general plotting library.
+I am are using the the Adult dataset on Kaggle. 
+- find out more information at https://archive.ics.uci.edu/dataset/2/adult.
+- This dataset is used to predict whether annual income of an individual exceeds $50K/yr based on census data. 
+- Also known as "Census Income" dataset.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -80,15 +75,6 @@ Improved Convergence: Many optimization algorithms (such as gradient descent) co
 Assumptions of Models: Some algorithms assume that features are normally distributed. Standard scaling helps to transform the 
                        features into a standard normal distribution (mean = 0, standard deviation = 1).
 
-The StandardScaler standardizes features by removing the mean and scaling to unit variance. Here’s how it achieves this:
-1. Calculate Mean and Standard Deviation:
-For each feature (column), it calculates the mean (μ) and standard deviation (σ) from the training data.
-2. Transform the Data:
-Each value in the feature is transformed using the formula: 𝑧 =(x− 𝜇) / 𝜎​
-This transformation results in a new feature distribution with:
-    -Mean = 0
-    -Standard Deviation = 1
-
 fit_transform():
     -fit: Computes the mean and standard deviation for each feature in the training dataset 𝑋_train. 
             It "learns" these parameters based on the data provided.
@@ -133,11 +119,10 @@ predict(): Generates predictions for the test set based on the trained model.
 
 accuracy_score(): Calculates the proportion of correctly predicted instances (TP + TN).
 confusion_matrix(): Computes a confusion matrix to visualize the performance of the model, showing true vs. predicted classifications.
+    
+        -True Positives (TP): Correctly predicted positive instances.
+        -True Negatives (TN): Correctly predicted negative instances.
+        -False Positives (FP): Incorrectly predicted positive instances (Type I error).
+        -False Negatives (FN): Incorrectly predicted negative instances (Type II error).
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-plt.figure(): Sets the figure size for the plot.
-sns.heatmap(): Creates a heatmap visualization of the confusion matrix, with annotations for clarity.
-plt.show(): Displays the plot. This visualization helps to easily identify model performance across different classes.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        

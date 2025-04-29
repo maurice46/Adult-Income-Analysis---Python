@@ -1,10 +1,8 @@
-import seaborn as sns
-import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, confusion_matrix
-from sklearn.preprocessing import StandardScaler
 
 data = pd.read_csv('adult.data', header=None, na_values=' ?')
 
@@ -48,19 +46,11 @@ y_pred = model.predict(X_test)
 accuracy = accuracy_score(Y_test, y_pred)
 matrix = confusion_matrix(Y_test, y_pred)
 
-# Create a DataFrame for better labeling
+# for better labeling
 matrix = pd.DataFrame(matrix, 
                      index=["Actual: <=50K", "Actual: >50K"], 
                      columns=["Predicted: <=50K", "Predicted: >50K"])
 
-# Print results
 print(f"Accuracy Score: {accuracy:.4f}")
 print(matrix)
 
-# Visualize the confusion matrix
-plt.figure(figsize=(8, 6))
-sns.heatmap(matrix, annot=True, fmt="d", cmap="Blues", cbar=False)
-plt.ylabel('Actual')
-plt.xlabel('Predicted')
-plt.title('Confusion Matrix')
-plt.show()
