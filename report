@@ -1,7 +1,12 @@
-I am are using the the Adult dataset on Kaggle. 
-- find out more information at https://archive.ics.uci.edu/dataset/2/adult.
-- This dataset is used to predict whether annual income of an individual exceeds $50K/yr based on census data. 
-- Also known as "Census Income" dataset.
+We are using the the Adult dataset on Kaggle. 
+You can find out more information at https://archive.ics.uci.edu/dataset/2/adult.
+This dataset is used to predict whether annual income of an individual exceeds $50K/yr based on census data. 
+Also known as "Census Income" dataset.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Seaborn & Matplotlib: Libraries for data visualization; Seaborn provides a high-level interface for drawing 
+attractive statistical graphics, while Matplotlib is a more general plotting library.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -101,7 +106,6 @@ LogisticRegression():
 What is Logistic Regression?
     -Binary Classification: Logistic regression is primarily used for binary classification tasks, 
                             where the goal is to predict one of two possible outcomes. 
-                            For example, it might predict whether an email is spam (1) or not spam (0).
 
     -Logistic Function: The model uses the logistic (sigmoid) function to model the probability of a certain class.
 
@@ -109,7 +113,7 @@ What is Logistic Regression?
                    If the probability is greater than 0.5, it classifies the instance as 1; otherwise, it classifies it as 0.
 
 After fitting the model, you can evaluate its performance using metrics such as accuracy, precision, recall, F1-score, and the 
-area under the ROC curve (AUC). This evaluation helps you understand how well the model is making predictions.
+area under the ROC curve (AUC). This evaluation helps us understand how well the model is making predictions.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -119,10 +123,11 @@ predict(): Generates predictions for the test set based on the trained model.
 
 accuracy_score(): Calculates the proportion of correctly predicted instances (TP + TN).
 confusion_matrix(): Computes a confusion matrix to visualize the performance of the model, showing true vs. predicted classifications.
-    
-        -True Positives (TP): Correctly predicted positive instances.
-        -True Negatives (TN): Correctly predicted negative instances.
-        -False Positives (FP): Incorrectly predicted positive instances (Type I error).
-        -False Negatives (FN): Incorrectly predicted negative instances (Type II error).
 
-        
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+plt.figure(): Sets the figure size for the plot.
+sns.heatmap(): Creates a heatmap visualization of the confusion matrix, with annotations for clarity.
+plt.show(): Displays the plot. This visualization helps to easily identify model performance across different classes.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
